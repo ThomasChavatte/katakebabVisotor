@@ -1,5 +1,7 @@
 package fr.unilim.iut.kebab.ingredients;
 
+import visitor.VisiteurDeRegime;
+
 public class Sauce extends Ingredient {
 
 	public Sauce(String nom, Kebab kebab) {
@@ -16,4 +18,7 @@ public class Sauce extends Ingredient {
 		return super.isPescetarien();
 	}
 
+	public void accept(VisiteurDeRegime vis){
+    	vis.visit(this);    	
+    }
 }

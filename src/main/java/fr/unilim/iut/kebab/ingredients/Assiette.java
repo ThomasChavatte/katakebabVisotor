@@ -3,6 +3,8 @@ package fr.unilim.iut.kebab.ingredients;
 import java.util.LinkedList;
 import java.util.List;
 
+import visitor.VisiteurDeRegime;
+
 public class Assiette implements Kebab {
 
 	public List<Ingredient> getIngredients() {
@@ -16,5 +18,8 @@ public class Assiette implements Kebab {
 	public boolean isPescetarien() {
 		return true;
 	}
-
+	
+	public void accept(VisiteurDeRegime vis){
+    	vis.visit(this);    	
+    }
 }

@@ -1,6 +1,6 @@
 package fr.unilim.iut.kebab.ingredients;
 
-
+import visitor.VisiteurDeRegime;
 
 public class Oignon extends Ingredient {
 
@@ -17,5 +17,9 @@ public class Oignon extends Ingredient {
 	public boolean isPescetarien() {
 		return super.isPescetarien();
 	}
+	
+	public void accept(VisiteurDeRegime vis){
+    	vis.visit(this);    	
+    }
 
 }
