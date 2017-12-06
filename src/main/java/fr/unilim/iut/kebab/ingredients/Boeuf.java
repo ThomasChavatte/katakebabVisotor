@@ -2,9 +2,9 @@ package fr.unilim.iut.kebab.ingredients;
 
 
 
-public class Crevette extends Ingredient {
+public class Boeuf extends Ingredient {
 
-    public Crevette(String nom, Kebab kebab) {
+    public Boeuf(String nom, Kebab kebab) {
         super(nom,kebab);
   
     }
@@ -16,7 +16,7 @@ public class Crevette extends Ingredient {
 
     @Override
     public boolean isPescetarien() {
-        return super.isPescetarien();
+        return false;
         /* utilisation de super pour respecter la spec du pattern
 		ce qui équivaut en fait à faire appel au kebab interne
 		c-a-d que l'on pourrait écrire de manière plus lisible : return this.kebab.isVegetarien();

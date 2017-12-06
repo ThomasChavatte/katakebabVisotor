@@ -1,4 +1,4 @@
-package fr.unilim.iut.kebab;
+package unilim;
 
 
 import fr.unilim.iut.kebab.ingredients.*;
@@ -25,6 +25,7 @@ public class KebabTest {
     private Kebab kebabVegetarien;
     private Kebab kebabPoisson;
     private Kebab kebabCrevette;
+    private Kebab kebabBoeuf;
     
     @Before
     public void setUp() {
@@ -62,7 +63,13 @@ public class KebabTest {
 														new Oignon("oignon blanc",
 																new Pain("pita",
 																		new Assiette())))))));
-        
+        kebabBoeuf = new Sauce("sauce ch'ti",
+				new Tomate("tomate rouge",
+					new Oignon("oignon blanc",
+							new Boeuf("Boueuf du Limousin qui est très bon",
+							new Fromage("gruyere",
+									new Pain("pita",
+										new Assiette()))))));
         
 
 
@@ -82,6 +89,9 @@ public class KebabTest {
     
      	assertThat(kebabCrevette.getIngredients()).extracting("nom")
 		.containsExactly("pita","oignon blanc","sauce algérienne","cheddar","petite crevette","tomate rouge","laitue");
+     	
+     	assertThat(kebabBoeuf.getIngredients()).extracting("nom")
+		.containsExactly("pita", "gruyere", "Boueuf du Limousin qui est très bon", "oignon blanc", "tomate rouge", "sauce ch'ti");
     }
 
 
@@ -104,6 +114,17 @@ public class KebabTest {
     @Test
     public void isVegetarien_devrait_retourner_faux_pour_kebabCrevette() {
         assertThat(kebabCrevette.isVegetarien()).isFalse();
+    }
+    
+    @Test
+    public void isVegetarien_devrait_retourner_faux_pour_kebabBoeuf() {
+        assertThat(kebabBoeuf.isVegetarien()).isFalse();
+    }
+
+    //Pescetarien
+    @Test
+    public void isPescetarien_devrait_retourner_faux_pour_kebabBoeuf() {
+        assertThat(kebabBoeuf.isPescetarien()).isFalse();
     }
 
     //Pescetarien
